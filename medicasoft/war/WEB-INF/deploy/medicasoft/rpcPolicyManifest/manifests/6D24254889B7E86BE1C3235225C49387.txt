@@ -1,0 +1,2 @@
+serviceClass: com.rsoft.medicasoft.client.service.EasyGwtRpcService
+path: 7CA7A3A57EB841F26EF4D55566DA961B.gwt.rpc
