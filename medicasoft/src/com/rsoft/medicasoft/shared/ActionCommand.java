@@ -1,0 +1,5 @@
+package com.rsoft.medicasoft.shared;
+
+public enum ActionCommand {
+	INSERT, MERGE, REMOVE, SEARCH, RESET, FIRST, LAST, NEXT, PREVIOUS, LOAD, EXTRACT, PRINT, RESET_GRID, SEARCH_GRID, MULTIPLE, CRITERIA, COLUMNAR_SEARCH
+}
