@@ -1,0 +1,233 @@
+<module>
+	<inherits name="com.sencha.gxt.theme.base.Base" />
+	<replace-with
+		class="com.sencha.gxt.theme.gray.client.toolbar.GrayToolBarButtonAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.toolbar.ToolBarButton.ToolBarButtonAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.sencha.gxt.theme.gray.client.panel.GrayPanelHeaderAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.ContentPanel.PanelHeaderAppearance" />
+	</replace-with>
+
+ 
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyThemeAppearance">
+		<when-type-is
+			class="com.sencha.gxt.core.client.resources.ThemeStyles.ThemeAppearance" />
+	</replace-with>
+
+	<!-- Buttons -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyButtonGroupAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.button.ButtonGroup.ButtonGroupAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyGridAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.grid.GridView.GridAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyProgressBarAppearance">
+		<when-type-is
+			class="com.sencha.gxt.cell.core.client.ProgressBarCell.ProgressBarAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyWindowAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.Window.WindowAppearance" /> <!-- Need Framed panel -->
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyAccordionLayoutAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer.AccordionLayoutAppearance" />
+	</replace-with>
+
+
+	<!-- Menu Bar -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyMenuBarAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.MenuBar.MenuBarAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyMenuBarItemAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.MenuBarItem.MenuBarItemAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyDatePickerAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.DatePicker.DatePickerAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyFieldSetAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.form.FieldSet.FieldSetAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyTreeAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.tree.Tree.TreeAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyContentPanelAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.ContentPanel.ContentPanelAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyFramedPanelAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.FramedPanel.FramedPanelAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyToolBarAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.toolbar.ToolBar.ToolBarAppearance" />
+	</replace-with>
+
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasySeparatorToolItemAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.toolbar.SeparatorToolItem.SeparatorToolItemAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyTools">
+		<when-type-is class="com.sencha.gxt.widget.core.client.button.Tools" />
+	</replace-with>
+	<!-- Menu -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyMenuAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.Menu.MenuAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyItemAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.Item.ItemAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyMenuItemAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.MenuItem.MenuItemAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyHeaderMenuItemAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.HeaderMenuItem.HeaderMenuItemAppearance" />
+	</replace-with>
+
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasySeparatorMenuItemAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.SeparatorMenuItem.SeparatorMenuItemAppearance" />
+	</replace-with>
+
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyCheckMenuItemAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.menu.CheckMenuItem.CheckMenuItemAppearance" />
+	</replace-with>
+
+	<!-- Status -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyStatusAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.Status.StatusAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyBoxStatusAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.Status.BoxStatusAppearance" />
+	</replace-with>
+
+	<!-- Tab Panel -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyTabPanelAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.TabPanel.TabPanelAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyTabPanelBottomAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.TabPanel.TabPanelBottomAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyPlainTabPanelAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.PlainTabPanel.PlainTabPanelAppearance" />
+	</replace-with>
+
+	<!-- Color Palette -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyColorPaletteAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.ColorPaletteCell.ColorPaletteAppearance" />
+	</replace-with>
+
+	<!-- Slider -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasySliderHorizontalAppearance">
+		<any>
+			<when-type-is
+				class="com.sencha.gxt.cell.core.client.SliderCell.SliderAppearance" />
+			<when-type-is
+				class="com.sencha.gxt.cell.core.client.SliderCell.HorizontalSliderAppearance" />
+		</any>
+	</replace-with>
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasySliderVerticalAppearance">
+		<when-type-is
+			class="com.sencha.gxt.cell.core.client.SliderCell.VerticalSliderAppearance" />
+	</replace-with>
+
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyBorderLayoutAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutAppearance" />
+	</replace-with>
+
+	<!-- Resizable -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyResizableAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.Resizable.ResizableAppearance" />
+	</replace-with>
+
+	<!-- Status proxy -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyStatusProxyAppearance">
+		<when-type-is
+			class="com.sencha.gxt.dnd.core.client.StatusProxy.StatusProxyAppearance" />
+	</replace-with>
+	<!-- Paging tool bar -->
+	<replace-with
+		class="com.rsoft.medicasoft.client.view.easywidget.appearance.EasyPagingToolBarAppearance">
+		<when-type-is
+			class="com.sencha.gxt.widget.core.client.toolbar.PagingToolBar.PagingToolBarAppearance" />
+	</replace-with>
+</module>

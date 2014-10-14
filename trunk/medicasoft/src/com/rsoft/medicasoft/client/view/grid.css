@@ -1,0 +1,15 @@
+.errorRow {
+  background:ff0000	
+  font: normal 11px tahoma, arial, helvetica, sans-serif;
+  padding: 3px 10px 3px 10px;
+  white-space: normal;
+  color: #555;
+}
+
+.alternateRow {
+  background:0000ff
+  font: normal 11px tahoma, arial, helvetica, sans-serif;
+  padding: 3px 10px 3px 10px;
+  white-space: normal;
+  color: #555;
+}
