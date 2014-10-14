@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE root-menu>
+<root-menus>
+	<!-- module values{global,hopital,clinique,pharmacie,laboratoire,assureur,employeur,etat_civil,ministere} -->
+	<!-- available-actions{visualize, create, update, remove, post, cancel, 
+		pay, activate, deactivate, close, finalize, validate} -->
+	<root-menu id="Administration" description="Administration"
+		type="yes" module="hopital">
+		<field name="ParamInout" description="Param Entree/Sortie"
+			value="value" icon-name="icones/1286561786_new window.png" has-icon="yes"
+			mnemonic="78" type="menu-item" class-name="$^%Nouveau"
+			available-actions="visualize,create,update,remove" />
+
+		<field name="LogMessage" description="Log Message" value="value"
+			icon-name="icones/1286561786_new window.png" has-icon="yes" mnemonic="78"
+			type="menu-item" class-name="$^%Nouveau" available-actions="visualize,create,update,remove" />
+			
+		<field name="Pays" description="Pays" value="value"
+			icon-name="icones/FlecheGauche.gif" has-icon="yes" mnemonic="69"
+			type="menu-item" class-name="$^%Precedent" available-actions="visualize,create,update,remove" />
+
+
+		<field name="Religion" description="Religion" value="value"
+			icon-name="icones/FlecheGauche.gif" has-icon="yes" mnemonic="69"
+			type="menu-item" class-name="$^%Precedent" available-actions="visualize,create,update,remove" />
+
+		<field name="Profession" description="Profession" value="value"
+			icon-name="icones/FlecheGauche.gif" has-icon="yes" mnemonic="69"
+			type="menu-item" class-name="$^%Precedent" available-actions="visualize,create,update,remove" />
+
+
+		<field name="UserGroup" description="User Group" value="value"
+			icon-name="icones/1286576946_Save.png" has-icon="yes" mnemonic="83"
+			type="menu-item" class-name="$^%Enregistrer" available-actions="visualize,create,update,remove" />
+		
+		<field name="UserProfile" description="User Profile" value="value"
+			icon-name="icones/FlecheDroite.gif" has-icon="yes" mnemonic="82"
+			type="menu-item" class-name="$^%Suivant" available-actions="visualize,create,update,remove" />
+		
+		<field name="Institution" description="Institution" value="value"
+			icon-name="icones/FlecheGauche.gif" has-icon="yes" mnemonic="69"
+			type="menu-item" class-name="$^%Precedent" available-actions="visualize,create,update,remove" />
+	</root-menu>
+	<root-menu id="Patient" description="Patient" type="yes"
+		module="hopital">
+		<field name="Patient" description="Patient" value="value"
+			mnemonic="80" icon-name="icones/1286561606_gnome-dev-printer.png"
+			has-icon="yes" type="menu-item" class-name="$^%Imprimer"
+			available-actions="visualize,create,update,remove" />
+	</root-menu>
+	<root-menu id="Aide" description="Aide" type="yes" module="hopital">
+		<field name="TutorielIndex" description="Tutoriel Index" value="value"
+			icon-name="" has-icon="no" mnemonic="" type="menu-item"
+			class-name="rsoft.rh.ui.FrameContent" available-actions="visualize,create,update,remove" />
+		
+		<field name="AuSujet" description="Au Sujet" value="value"
+			icon-name="" has-icon="no" mnemonic="" type="menu-item" class-name="rsoft.rh.ui.FrameAbout"
+			available-actions="visualize,create,update,remove"/>
+	</root-menu>
+</root-menus>

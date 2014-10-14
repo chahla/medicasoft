@@ -1,0 +1,347 @@
+<!-- Gestion acamedique Beta Copyright(c) 2012-2013, Centre de recherche 
+	et de develeppoment, rsoft. http://rsoft.com @Author=Jean Louidort*/ @Generation 
+	Date=Tue Oct 08 19:46:11 EDT 2013*/ @Version=1.0*/ -->	
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:icrtb="urn:import:com.rsoft.medicasoft.client.toolsbar"
+	xmlns:c="urn:import:com.sencha.gxt.widget.core.client" xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+	xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+	xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
+	xmlns:lov="urn:import:com.rsoft.medicasoft.client.lovs">
+
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="sideMargins">
+		<ui:attributes top="4" right="4" bottom="4" left="4" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData"
+		field="centerLayoutData">
+		<ui:attributes width="1" height="1" margins="{centerMargins}" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData"
+		field="sideLayoutData">
+		<ui:attributes width="-1" height="1" margins="{sideMargins}" />
+	</ui:with>
+
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="verticalLayoutData">
+		<ui:attributes width="1" height="-1"  margins="{sideMargins}" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="statusVerticalLayoutData">
+		<ui:attributes width="200" height="-1" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData"
+		field="horizontalLayoutData">
+		<ui:attributes width="1" height="-1" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="toolsBarLayoutData">
+		<ui:attributes width="1" height="-1" />
+	</ui:with>
+
+	<ui:with type="com.rsoft.medicasoft.client.lovs.LovUserGroup.ILovUserGroup"
+		field="iLovUserGroup9" />
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.form.DateTimePropertyEditor"
+		field="datePropertyEditor" />
+
+
+	<ui:with type="com.rsoft.medicasoft.client.toolsbar.IToolsBarAction"
+		field="toolsBarAction" />
+
+	<ui:with type="com.rsoft.medicasoft.shared.i18n.II18NMessages"
+		field="messages" />
+
+	<ui:style>
+		.centerMargin {
+			margin: 10px;
+		}
+	</ui:style>
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="margins">
+		<ui:attributes top="0" right="0" bottom="0" left="0" />
+	</ui:with>
+	<ui:with type="com.sencha.gxt.widget.core.client.container.MarginData"
+		field="outerData" />
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="northData">
+		<ui:attributes margins="{margins}" collapsible="true"
+			split="true" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="westData">
+		<ui:attributes margins="{margins}" collapsible="true"
+			split="true" />
+	</ui:with>
+	<ui:with type="com.sencha.gxt.widget.core.client.container.MarginData"
+		field="centerData" />
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="eastData">
+		<ui:attributes margins="{margins}" collapsible="true"
+			split="true" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="southData">
+		<ui:attributes margins="{margins}" collapsible="true"
+			split="true" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="barSouthData">
+		<ui:attributes size="36" margins="{margins}"
+			collapsible="true" split="true" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="barNorthData">
+		<ui:attributes size="30" margins="{margins}" />
+	</ui:with>
+
+	<ui:with field="themeStyles"
+		type="com.sencha.gxt.core.client.resources.ThemeStyles.Styles" />
+
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="outerMargins">
+		<ui:attributes top="0" right="0" bottom="0" left="0" />
+	</ui:with>
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="centerMargins">
+		<ui:attributes top="0" right="0" bottom="0" left="0" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="middleData">
+		<ui:attributes height="412" margins="{centerMargins}" />
+	</ui:with>
+
+	<container:SimpleContainer>
+		<container:child layoutData="{outerData}">
+			<container:BorderLayoutContainer
+				ui:field="mainContainer" borders="true">
+				<container:north layoutData="{northData}">
+					<container:SimpleContainer>
+						<container:child>
+							<container:BorderLayoutContainer
+								borders="false" ui:field="menuContainer">
+								<container:north layoutData="{barNorthData}">
+									<g:HTML ui:field="htmlMessage" />
+								</container:north>
+								<container:south layoutData="{barSouthData}">
+									<c:ContentPanel layoutData="{toolsBarLayoutData}"
+										ui:field="toolBarArea">
+									</c:ContentPanel>
+								</container:south>
+							</container:BorderLayoutContainer>
+						</container:child>
+					</container:SimpleContainer>
+				</container:north>
+				<container:center layoutData="{centerData}">
+					<g:VerticalPanel spacing="0">
+						<c:ContentPanel ui:field="panel" headingText="UserProfile"
+							collapsible="true">
+							<container:VerticalLayoutContainer>
+								<container:child layoutData="{middleData}">
+									<c:ContentPanel headerVisible="false" resize="true">
+										<c:ContentPanel headerVisible="false" width="460">
+											<container:VerticalLayoutContainer>
+												<container:child layoutData="{verticalLayoutData}">
+
+													<form:FieldLabel text="{messages.title} *">
+
+														<form:widget>
+															<form:TextField ui:field="title"
+																allowBlank="false" />
+														</form:widget>
+													</form:FieldLabel>
+
+												</container:child>
+
+
+												<container:child layoutData="{verticalLayoutData}">
+
+													<form:FieldLabel text="{messages.firstName} *">
+
+														<form:widget>
+															<form:TextField ui:field="firstName"
+																allowBlank="false" />
+														</form:widget>
+													</form:FieldLabel>
+
+												</container:child>
+
+
+												<container:child layoutData="{verticalLayoutData}">
+
+													<form:FieldLabel text="{messages.lastName} *">
+
+														<form:widget>
+															<form:TextField ui:field="lastName"
+																allowBlank="false" />
+														</form:widget>
+													</form:FieldLabel>
+
+												</container:child>
+
+
+
+												<container:child layoutData="{verticalLayoutData}">
+													<g:HorizontalPanel spacing="0">
+
+														<form:FieldLabel text="{messages.sex} *">
+
+															<form:widget>
+																<g:ListBox ui:field="sex" />
+															</form:widget>
+														</form:FieldLabel>
+
+
+														<form:FieldLabel text="{messages.language} *">
+
+															<form:widget>
+																<g:ListBox ui:field="language" width="158px" />
+															</form:widget>
+														</form:FieldLabel>
+
+													</g:HorizontalPanel>
+												</container:child>
+
+
+												<container:child layoutData="{verticalLayoutData}">
+
+
+													<g:HorizontalPanel spacing="0">
+														<form:FieldLabel text="{messages.userGroupId}">
+															<form:widget>
+																<lov:LovUserGroup  width="324" iLovUserGroup="{iLovUserGroup9}"
+																	ui:field="userGroup" allowBlank="true" />
+															</form:widget>
+														</form:FieldLabel>
+														<button:TextButton toolTip="{messages.recordUserGroup}" height="15" ui:field="btnLoadUserGroup" text="..." />
+													</g:HorizontalPanel>
+
+
+												</container:child>
+
+
+												<container:child layoutData="{verticalLayoutData}">
+													<form:FieldSet ui:field="fieldSet"
+														headingText="{messages.credentials}" collapsible="true">
+
+														<container:VerticalLayoutContainer>
+															<container:child layoutData="{verticalLayoutData}">
+																<g:HorizontalPanel spacing="0">
+																	<form:FieldLabel text="{messages.expirationDate}">
+																		<form:widget>
+																			<form:DateField width="105" ui:field="expirationDate"
+																				propertyEditor="{datePropertyEditor}" allowBlank="true" />
+																		</form:widget>
+																	</form:FieldLabel>
+																	<form:FieldLabel ui:field="labelStatus"
+																		width="210" text="{messages.status}">
+																		<form:widget>
+																			<form:TextField ui:field="status"
+																				 allowBlank="false" />
+																		</form:widget>
+																	</form:FieldLabel>
+																</g:HorizontalPanel>
+
+															</container:child>
+
+															<container:child layoutData="{verticalLayoutData}">
+																<form:FieldLabel text="{messages.userId} *">
+																	<form:widget>
+																		<form:TextField ui:field="userId"
+																			allowBlank="false" />
+																	</form:widget>
+																</form:FieldLabel>
+
+															</container:child>
+
+
+															<container:child layoutData="{verticalLayoutData}">
+
+																<form:FieldLabel text="{messages.email}">
+
+																	<form:widget>
+																		<form:TextField ui:field="email"
+																			allowBlank="true" />
+																	</form:widget>
+																</form:FieldLabel>
+															</container:child>
+
+															<container:child layoutData="{verticalLayoutData}">
+
+																<form:FieldLabel text="{messages.pinCode}">
+
+																	<form:widget>
+																		<form:PasswordField ui:field="pinCode"
+																			allowBlank="true" />
+																	</form:widget>
+																</form:FieldLabel>
+
+															</container:child>
+
+
+															<container:child layoutData="{verticalLayoutData}">
+
+																<form:FieldLabel width="250"
+																	text="{messages.pinCodeConfirmation}">
+
+																	<form:widget>
+																		<form:PasswordField ui:field="pinCodeConfirmation"
+																			allowBlank="true" />
+																	</form:widget>
+																</form:FieldLabel>
+
+															</container:child>
+
+
+														</container:VerticalLayoutContainer>
+
+													</form:FieldSet>
+												</container:child>
+
+
+											</container:VerticalLayoutContainer>
+
+											<c:button>
+												<button:TextButton ui:field="btnResetPassword"  toolTip="{messages.resetUserPassword}"
+													text="{messages.resetPassword}" />
+											</c:button>
+											<c:button>
+												<button:TextButton ui:field="btnActivate" toolTip="{messages.activateAccount}"
+													text="{messages.activate}" />
+											</c:button>
+											<c:button>
+												<button:TextButton ui:field="btnDeactivate"  toolTip="{messages.deactivateAccount}"
+													text="{messages.deactivate}" />
+											</c:button>
+										</c:ContentPanel>
+									</c:ContentPanel>
+								</container:child>
+							</container:VerticalLayoutContainer>
+						</c:ContentPanel>
+					</g:VerticalPanel>
+				</container:center>
+				<container:south layoutData="{southData}">
+				</container:south>
+			</container:BorderLayoutContainer>
+		</container:child>
+	</container:SimpleContainer>
+</ui:UiBinder>
+
+
