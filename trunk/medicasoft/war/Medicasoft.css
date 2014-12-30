@@ -1,7 +1,48 @@
 /** Add css rules here for your application. */
-
-
 /** Example rules used by the template application (remove for your app) */
+.mainToolBarButton {
+  font-size: 1em;
+  color: #000000;
+  margin: 0px 0px 0px opx;
+}
+
+.font{
+font-size:9px;
+  margin: 0;
+  
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+  background: url("images/hborder.png") repeat-x 0px -2077px;
+  border:1px solid #bbb;
+  border-bottom: 1px solid #a0a0a0;
+  border-radius: 3px;
+ -moz-border-radius: 3px;
+}
+
+gridRow {
+  background-color: #000000;
+  font-size: 2em;
+  font-weight: bold;
+  color: #007700;
+  background-color: #000000;
+}
+
+.errorGridRow {
+  font-size: 2em;
+  font-weight: bold;
+  color: #FF0000;
+  background-color: #FFC000;
+}
+
+.removedGridRow {
+  font-size: 2em;
+  font-weight: bold;
+  color: #EE12F3;
+  background-color: #00FF00;
+  margin: 40px 0px 70px;
+}
+
 h1 {
   font-size: 2em;
   font-weight: bold;
@@ -32,3 +73,121 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+
+/** css Professeur*/
+.fielset_prof{
+padding-left:5px;
+border:1px solid #C5C5C5;
+font-size:11px;
+
+}
+.no_border{
+	border:1px solid #FFF;
+	padding-left:5px;
+	padding-top:0px;
+	
+}
+.no_padding{
+	padding-left:0px;
+	padding-top:0px;
+	padding-right:20px;
+	padding-bottom:10px;
+	font-weight:bold;
+	border:1px solid #C5C5C5;
+	width:1000px;
+	height:420px;
+	color:#333;
+}
+.vertical_prof{
+        position:relative;
+	
+	top:5px;
+}
+.vertical_prof1{
+	
+	position:relative;
+	left:10%;
+	top:8px;
+	
+}
+
+.fielset_photo{
+	position:relative;
+	bottom:69px;
+    left:36%;
+	font-size:11px;
+	padding:10px;
+	border:1px solid #C5C5C5;
+}
+.fielset_suplement{
+        position:relative;
+	top:2px;
+	border:1px solid #C5C5C5;
+	font-size:11px;
+	padding-top:7px;
+}
+.fielset_prof{
+	padding-left:0px;
+}
+
+/**css temporaire*/
+.entete_texte{
+	
+width:1035px;
+margin:auto;
+}
+.div_head{
+	position:relative;   
+	width:910px;
+	height:auto;
+	position:relative;
+	
+	
+}
+.texte{
+	margin-left:10px;
+}
+h2,h3,h4{
+	margin:0;
+	padding:0;
+}
+.pos_titre{
+	font-size:18px;
+	color:#333;
+	margin-left:10px;
+	float:left;
+	margin-top:5px;
+
+}
+.texte{
+	float:left;
+	margin-left:18%;
+	font-size:12px;
+	color:#999;
+	margin-top:10px;
+}
+.img_float{
+	float:left;
+	}
+.barre{
+	width:100%;
+	height:1px;
+	background-image:url(images/barr.png);
+	background-repeat: no-repeat;
+	margin-left:4px;
+	
+	
+}
+.padd{
+	padding-left:10px;
+	height:35px;
+	width:100%;
+}
+
+.cel{
+
+border:none;
+margin-left:40px;
+}
+

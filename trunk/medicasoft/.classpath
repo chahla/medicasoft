@@ -3,33 +3,29 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" output="test-classes" path="test"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/bcprov-jdk14-1.38.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/commons-fileupload-1.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/commons-io-2.4.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/gae-files-processor.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/geronimo-jpa_3.0_spec-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/geronimo-jta_1.1_spec-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/gin-1.5-post-gwt-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/guice-assistedinject-snapshot.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/guice-snapshot.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/gwtupload-0.6.6.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/gwtupload-gae-0.6.6.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/gxt-3.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/gxt-chart-3.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/gxt-legacy-3.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/javax.inject.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/jsr107cache-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/logback-classic-0.9.15.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/logback-core-0.9.15.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/mvp4g-1.4.0.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/slf4j-api-1.5.6.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/uibinder-bridge-2.4.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/bcprov-jdk14-1.38.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gin-1.5-post-gwt-2.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guice-assistedinject-snapshot.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guice-snapshot.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-timepicker-0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gxt-3.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gxt-chart-3.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gxt-legacy-3.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jsr107cache-1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mvp4g-1.4.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.inject.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/aopalliance.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-14.0.1.jar"/>
+	<classpathentry kind="con" path="com.google.gdt.eclipse.managedapis.MANAGED_API_CONTAINER/bigquery-v2"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/logback-classic-0.9.15.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/logback-core-0.9.15.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-4.0b3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.5.6.jar"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/google_sql.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/google-api-services-bigquery-v2-rev81-1.12.0-beta.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/guava-14.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/objectify-4.0b3.jar"/>
-	<classpathentry kind="lib" path="C:/My Datas/Robelkend/repository-libraries/aopalliance.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwtupload-gae-0.6.6.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwtupload-0.6.6.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gae-files-processor.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
