@@ -131,7 +131,9 @@
 				<container:child layoutData="{verticalLayoutData}">
 					<form:FieldLabel text="Age">
 						<form:widget>
-							<form:NumberField ui:field="age" allowBlank="false" />
+							<form:NumberField ui:field="age"
+								editor="{integerPropertyEditor}" format="{inumberFormat}"
+								allowBlank="false" name="age" />
 						</form:widget>
 					</form:FieldLabel>
 				</container:child>
@@ -237,17 +239,16 @@
 					</container:child>
 
 					<container:child>
-							<container:BorderLayoutContainer
-								borders="false" ui:field="menuContainer">
-								<container:north layoutData="{barNorthData}">
-									<g:HTML ui:field="htmlMessage" />
-								</container:north>
-								<container:south layoutData="{barSouthData}">
-									<c:ContentPanel 
-										ui:field="toolBarArea">
-									</c:ContentPanel>
-								</container:south>
-							</container:BorderLayoutContainer>
+						<container:BorderLayoutContainer
+							borders="false" ui:field="menuContainer">
+							<container:north layoutData="{barNorthData}">
+								<g:HTML ui:field="htmlMessage" />
+							</container:north>
+							<container:south layoutData="{barSouthData}">
+								<c:ContentPanel ui:field="toolBarArea">
+								</c:ContentPanel>
+							</container:south>
+						</container:BorderLayoutContainer>
 					</container:child>
 				</container:VerticalLayoutContainer>
 			</form:FieldSet>
