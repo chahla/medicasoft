@@ -13,6 +13,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -28,7 +30,6 @@ import com.rsoft.medicasoft.shared.ActionCommand;
 import com.rsoft.medicasoft.shared.i18n.I18NMessages;
 import com.rsoft.medicasoft.shared.model.UserGroup;
 import com.sencha.gxt.core.client.XTemplates;
-import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.TabPanel;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
 import com.sencha.gxt.widget.core.client.form.TextField;
@@ -179,6 +180,34 @@ public class UserGroupView extends UserGroupMasterWrapperView {
 		this.finalizeForm(callback, ENTITY_NAME);
 		this.driver = GWT.create(UserGroupDriver.class);
 		this.edit();
+		if (dataDetail != null && mainContainer != null) {
+			final double ds = dataDetail.getSize();
+			if (ds >= 50) {
+				mainContainer.addResizeHandler(new ResizeHandler() {
+					@Override
+					public void onResize(ResizeEvent event) {
+						if (ms == 0) {
+							ms = mainContainer.getOffsetHeight(false);
+							if (ms > 0) {
+								pct = (ds * 100) / ms;
+							}
+						}
+						if (ms > 0
+								&& ms != mainContainer.getOffsetHeight(false)) {
+							double nSize = (mainContainer
+									.getOffsetHeight(false) * pct) / 100;
+							if (nSize <= dataDetail.getMinSize()) {
+								nSize = dataDetail.getMinSize();
+							}
+							if (nSize > dataDetail.getMaxSize()) {
+								nSize = dataDetail.getMaxSize();
+							}
+							dataDetail.setSize(nSize);
+						}
+					}
+				});
+			}
+		}
 		return widget;
 	}
 
@@ -262,10 +291,10 @@ public class UserGroupView extends UserGroupMasterWrapperView {
 
 	@Override
 	protected void addDetail(Widget widget) {
-		southData.setMargins(new Margins(5, 5, 5, 5));
-		southData.setCollapsible(true);
-		southData.setSplit(true);
-		mainContainer.setSouthWidget(widget, southData);
+		dataDetail.setSize(350);
+		dataDetail.setMinSize(50);
+		dataDetail.setMaxSize(350);
+		mainContainer.setSouthWidget(widget, dataDetail);
 	}
 
 	@Override
@@ -273,7 +302,10 @@ public class UserGroupView extends UserGroupMasterWrapperView {
 		if (folder == null) {
 			folder = new TabPanel();
 			folder.setWidth(350);
-			mainContainer.setSouthWidget(folder, southData);
+			dataDetail.setSize(350);
+			dataDetail.setMinSize(50);
+			dataDetail.setMaxSize(350);
+			mainContainer.setSouthWidget(folder, dataDetail);
 		}
 		folder.add(widget, title);
 	}

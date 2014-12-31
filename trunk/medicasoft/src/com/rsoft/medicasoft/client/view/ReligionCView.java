@@ -14,6 +14,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.safecss.shared.SafeStylesUtils;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -58,6 +60,7 @@ import com.sencha.gxt.widget.core.client.event.BeforeStartEditEvent;
 import com.sencha.gxt.widget.core.client.event.BeforeStartEditEvent.BeforeStartEditHandler;
 import com.sencha.gxt.widget.core.client.event.CellClickEvent;
 import com.sencha.gxt.widget.core.client.event.CellClickEvent.CellClickHandler;
+import com.sencha.gxt.widget.core.client.event.CellSelectionEvent;
 import com.sencha.gxt.widget.core.client.event.CompleteEditEvent;
 import com.sencha.gxt.widget.core.client.event.CompleteEditEvent.CompleteEditHandler;
 import com.sencha.gxt.widget.core.client.form.TextField;
@@ -347,10 +350,14 @@ public class ReligionCView extends ViewGridBase<Religion> {
 		ColumnConfig<Religion, String> descriptionColumn = new ColumnConfig<Religion, String>(
 				propertiesAccess.description(), 60, messages.description());
 		list.add(descriptionColumn);
+
 		ColumnConfig<Religion, String> classificationColumn = new ColumnConfig<Religion, String>(
 				propertiesAccess.classification(), 20,
 				messages.classification());
+
 		list.add(classificationColumn);
+
+
 		ColumnConfig<Religion, String> createdByColumn = new ColumnConfig<Religion, String>(
 				propertiesAccess.createdBy(), 30, messages.createdBy());
 		list.add(createdByColumn);
@@ -417,9 +424,20 @@ public class ReligionCView extends ViewGridBase<Religion> {
 		classificationField.setTriggerAction(TriggerAction.ALL);
 		classificationField.setForceSelection(true);
 
+
+		classificationField.addSelectionHandler(new SelectionHandler<String>() {
+	        @Override
+	        public void onSelection(SelectionEvent<String> event) {
+	          CellSelectionEvent<String> sel = (CellSelectionEvent<String>) event;
+	          Religion p = listStore.get(sel.getContext().getIndex());
+	          p.setClassification(event.getSelectedItem());
+	        }
+	      });
+
 		classificationColumn.setCell(classificationField);
 		classificationField.setWidth(110);
-
+		classificationField.setAllowBlank(false);
+		classificationField.setEditable(null, false);
 		// TextField classificationField = new TextField();
 		// classificationField.addValidator(new MaxLengthValidator(20));
 		// classificationField.setAllowBlank(false);
@@ -492,11 +510,6 @@ public class ReligionCView extends ViewGridBase<Religion> {
 		GridDropTarget<Religion> target = new GridDropTarget<Religion>(grid);
 		target.setAllowSelfAsSource(true);
 		target.setFeedback(Feedback.INSERT);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
 		ViewUtils.unNotify(htmlMessage);
 		grid.addCellClickHandler(new CellClickHandler() {
 			@Override
@@ -678,21 +691,6 @@ public class ReligionCView extends ViewGridBase<Religion> {
 		userHideBannerInfo = bannerInfoIsShowed;
 	}
 
-	public void showInfoBanner(boolean show) {
-		if (!show) {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.hide(LayoutRegion.NORTH);
-			northData.setSize(36);
-			bannerInfoIsShowed = false;
-			mainContainer.show(LayoutRegion.NORTH);
-		} else {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.show(LayoutRegion.NORTH);
-			northData.setSize(63);
-			bannerInfoIsShowed = true;
-			mainContainer.show(LayoutRegion.NORTH);
-		}
-	}
 
 	@Override
 	public void setViewCallback(ViewCallback callback) {

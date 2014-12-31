@@ -29,6 +29,7 @@ import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
 import com.sencha.gxt.widget.core.client.container.MarginData;
 import com.sencha.gxt.widget.core.client.form.FormPanel;
+import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.tips.ToolTipConfig;
 
 public abstract class T<T extends ModelBase> implements IView<T>  {
@@ -38,14 +39,14 @@ public abstract class T<T extends ModelBase> implements IView<T>  {
 	protected AutoProgressMessageBox box;
 	protected ViewCallback callback;
 	protected Long entityId;
-	protected TabPanel folder; 
-	
+	protected TabPanel folder;
+
 	protected String paramInoutSuffix;
-	
+
 	@UiField(provided = true)
 	protected com.rsoft.medicasoft.shared.i18n.II18NMessages messages = I18NMessages
 			.getMessages();
-	
+
 	@UiField(provided = true)
 	protected IToolsBarAction toolsBarAction = this;
 	@UiField
@@ -57,31 +58,31 @@ public abstract class T<T extends ModelBase> implements IView<T>  {
 		this.eventBus = eventBus;
 	}
 
-	
+
 	@UiField
 	protected HTML htmlMessage;
-	
+
 	@UiField(provided = true)
 	protected MarginData outerData = new MarginData(0);
-	
+
 	@UiField(provided = true)
 	protected BorderLayoutData northData = new BorderLayoutData(63);
-	
+
 	@UiField(provided = true)
 	protected BorderLayoutData westData = new BorderLayoutData(350);
-	
+
 	@UiField(provided = true)
 	protected MarginData centerData = new MarginData(0);
-	
+
 	@UiField(provided = true)
 	protected BorderLayoutData eastData = new BorderLayoutData(350);
-	
+
 	@UiField(provided = true)
 	protected BorderLayoutData southData = new BorderLayoutData(480);
-	
+
 	@UiField
 	protected BorderLayoutContainer menuContainer;
-	
+
 	@UiField(provided = true)
 	protected Styles themeStyles = ThemeStyles.getStyle();
 
@@ -94,15 +95,15 @@ public abstract class T<T extends ModelBase> implements IView<T>  {
 		// TODO Auto-generated method stub
 	}
 
-	
+
 	@UiField
 	protected ContentPanel toolBarArea;
 
-	
+
 	@UiField
 	protected ContentPanel panel;
 
-	
+
 	protected FormPanel mainForm = new FormPanel();
 
 	protected abstract void execute(ActionCommand command,
@@ -389,26 +390,32 @@ public abstract class T<T extends ModelBase> implements IView<T>  {
 	public void remove() {
 	}
 
-	public void showInfoBanner(boolean show) {
-		if (!show) {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.hide(LayoutRegion.NORTH);
-			northData.setSize(36);
-			bannerInfoIsShowed = false;
-			mainContainer.show(LayoutRegion.NORTH);
-		} else {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.show(LayoutRegion.NORTH);
-			northData.setSize(63);
-			bannerInfoIsShowed = true;
-			mainContainer.show(LayoutRegion.NORTH);
-		}
-	}
 
 	@Override
 	public void setBtnSaveVisible(boolean aFlag) {
 		toolsBar.setSaveEnabled(aFlag);
 		toolsBar.setRemoveEnabled(aFlag);
+	}
+	public void showInfoBanner(boolean show) {
+		String html = htmlMessage.getHTML();
+		if ((html == null || html.trim().isEmpty()) && show) {
+			Info.display(messages.message(), messages.no_information_to_display());
+		} else if (html != null && !html.trim().isEmpty()) {
+			Info.display(messages.message(), html);
+		}
+		if (!show) {
+			mainContainer.hide(LayoutRegion.NORTH);
+			menuContainer.hide(LayoutRegion.NORTH);
+			northData.setSize(0);
+			bannerInfoIsShowed = false;
+			mainContainer.show(LayoutRegion.NORTH);
+		} else {
+			mainContainer.hide(LayoutRegion.NORTH);
+			menuContainer.show(LayoutRegion.NORTH);
+			northData.setSize(36);
+			bannerInfoIsShowed = true;
+			mainContainer.show(LayoutRegion.NORTH);
+		}
 	}
 
 	@Override
@@ -441,8 +448,8 @@ public abstract class T<T extends ModelBase> implements IView<T>  {
 	 * redefinissez cette methode et faites y les modifications
 	 * */
 	public void finalizeModel(T currentModel) {
-		
-		
+
+
 	}
 
 	public abstract void setRenderer(ToolTipConfig config);

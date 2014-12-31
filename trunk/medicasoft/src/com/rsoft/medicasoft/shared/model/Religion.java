@@ -10,7 +10,6 @@ package com.rsoft.medicasoft.shared.model;
 import java.io.Serializable;
 
 import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.IgnoreSave;
 import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.OnLoad;
 import com.googlecode.objectify.annotation.OnSave;
@@ -53,7 +52,6 @@ public class Religion extends ModelBaseX implements Serializable {
 	public String getClassification() {
 		return this.classification;
 	}
-
 
 	public void setLangue(String langue) {
 		if (this.compareFields(this.langue, langue)) {
@@ -174,7 +172,6 @@ public class Religion extends ModelBaseX implements Serializable {
 		setUpdatedOn(model.getUpdatedOn());
 		setRowscn(model.getRowscn());
 		setRowscn(model.getRowscn());
-
 		description = model.getDescription();
 		classification = model.getClassification();
 	}
@@ -189,7 +186,6 @@ public class Religion extends ModelBaseX implements Serializable {
 			} else {
 				builder.append("|description");
 			}
-
 		}
 		if (classification == null || classification.trim().isEmpty()) {
 			if (builder.toString().isEmpty()) {
@@ -197,9 +193,8 @@ public class Religion extends ModelBaseX implements Serializable {
 			} else {
 				builder.append("|classification");
 			}
-
 		}
-		
+
 		if (!builder.toString().trim().isEmpty()) {
 			throw new ModelException("MISSING_FIELDS", builder.toString(),
 					"Fill all required fields before continue");

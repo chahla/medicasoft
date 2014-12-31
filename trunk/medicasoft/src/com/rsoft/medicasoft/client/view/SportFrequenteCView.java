@@ -136,7 +136,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 		listStore.commitChanges();
 		grid.getView().refresh(false);
 	}
-	
+
 	@Override
 	public void loadDatas() {
 		try {
@@ -147,7 +147,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 					listStore.clear();
 					listStore.commitChanges();
 					FilterWrapper wrapper = new FilterWrapper(null);
-					
+
         if (filters.getFilter("sportFrequenteId") != null && filters.getFilter("sportFrequenteId").getFilterConfig() != null && !filters.getFilter("sportFrequenteId").getFilterConfig().isEmpty()){
           for(FilterConfig fc : filters.getFilter("sportFrequenteId").getFilterConfig()) {
             if(fc.getValue() != null) {
@@ -324,7 +324,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 		numberer = new RowNumberer<SportPratique>(identity);
 		list = new ArrayList<ColumnConfig<SportPratique, ?>>();
 		List<ColumnConfig<SportPratique, ?>> list = new ArrayList<ColumnConfig<SportPratique, ?>>();
-		
+
         ColumnConfig<SportPratique, Integer> sportFrequenteIdColumn = new ColumnConfig<SportPratique, Integer>(propertiesAccess.sportFrequenteId(), 10, messages.sportFrequenteId());
         list.add(sportFrequenteIdColumn);
         ColumnConfig<SportPratique, String> nomSportColumn = new ColumnConfig<SportPratique, String>(propertiesAccess.nomSport(), 60, messages.nomSport());
@@ -350,7 +350,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 		list.add(updatedByColumn);
 		ColumnConfig<SportPratique, Date> updatedOnColumn = new ColumnConfig<SportPratique, Date>(
 				propertiesAccess.updatedOn(), 10, messages.updatedOn());
-		list.add(updatedOnColumn);		
+		list.add(updatedOnColumn);
 		columnModel = new ColumnModel<SportPratique>(list);
 	        widget = gxtUiBinder.createAndBindUi(this);
 		panel.addDomHandler(new KeyPressHandler() {
@@ -380,12 +380,12 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 				model.setUpdating(false);
 			}
 		});
-		
+
       NumberField<Integer> sportFrequenteIdField = new NumberField(integerPropertyEditor);
       sportFrequenteIdField.setAllowBlank(false);
       editing.addEditor(sportFrequenteIdColumn, sportFrequenteIdField);
 
-      
+
       TextField nomSportField = new TextField();
       nomSportField.addValidator(new MaxLengthValidator(60));
       nomSportField.setAllowBlank(false);
@@ -393,7 +393,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 
       NumberField<Integer> frequenceField = new NumberField(integerPropertyEditor);      editing.addEditor(frequenceColumn, frequenceField);
 
-      
+
       TextField uniteField = new TextField();
       uniteField.addValidator(new MaxLengthValidator(20));      editing.addEditor(uniteColumn, uniteField);
 
@@ -441,7 +441,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 
 		filters.initPlugin(grid);
 		//Add Filters
-		
+
         NumericFilter<SportPratique,Integer> sportFrequenteIdFilter = new NumericFilter<SportPratique,Integer>(propertiesAccess.sportFrequenteId(), integerPropertyEditor);
         filters.addFilter(sportFrequenteIdFilter);
         StringFilter<SportPratique> nomSportFilter = new StringFilter<SportPratique>(propertiesAccess.nomSport());
@@ -473,11 +473,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 		GridDropTarget<SportPratique> target = new GridDropTarget<SportPratique>(grid);
 		target.setAllowSelfAsSource(true);
 		target.setFeedback(Feedback.INSERT);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
+
 		ViewUtils.unNotify(htmlMessage);
 		grid.addCellClickHandler(new CellClickHandler() {
 			@Override
@@ -593,7 +589,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 			ex.printStackTrace(System.out);
 		} finally {
 			Info.display(messages.message(), messages.finished());
-			
+
 			if (box != null) {
 				box.hide();
 				box = null;
@@ -656,21 +652,7 @@ public class SportFrequenteCView extends ViewGridBase<SportPratique> {
 		userHideBannerInfo = bannerInfoIsShowed;
 	}
 
-	public void showInfoBanner(boolean show) {
-		if (!show) {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.hide(LayoutRegion.NORTH);
-			northData.setSize(36);
-			bannerInfoIsShowed = false;
-			mainContainer.show(LayoutRegion.NORTH);
-		} else {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.show(LayoutRegion.NORTH);
-			northData.setSize(63);
-			bannerInfoIsShowed = true;
-			mainContainer.show(LayoutRegion.NORTH);
-		}
-	}
+
 
 	@Override
 	public void setViewCallback(ViewCallback callback) {

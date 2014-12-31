@@ -50,20 +50,18 @@
 		<ui:attributes margins="{margins}" collapsible="true"
 			split="true" />
 	</ui:with>
-	<ui:with type="com.sencha.gxt.widget.core.client.container.MarginData"
-		field="centerData" />
+	<ui:with type="com.sencha.gxt.widget.core.client.container.MarginData" field="centerData" />
 	<ui:with
 		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
 		field="eastData">
 		<ui:attributes margins="{margins}" collapsible="true"
 			split="true" />
 	</ui:with>
-	<ui:with
-		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
-		field="southData">
-		<ui:attributes margins="{margins}" collapsible="true"
-			split="true" />
+	
+	<ui:with type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData" field="southData">
+		<ui:attributes margins="{margins}"  collapsible="true" split="true" />
 	</ui:with>
+	
 	<ui:with
 		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
 		field="barSouthData">
@@ -96,15 +94,16 @@
 	<container:SimpleContainer>
 		<container:child layoutData="{outerData}">
 			<container:BorderLayoutContainer
-				ui:field="mainContainer" borders="true">
+				ui:field="mainContainer" borders="false">
 				<container:north layoutData="{northData}">
 					<container:SimpleContainer>
 						<container:child>
-							<container:BorderLayoutContainer
-								borders="false" ui:field="menuContainer">
+							<container:BorderLayoutContainer borders="false" ui:field="menuContainer">
+								
 								<container:north layoutData="{barNorthData}">
 									<g:HTML ui:field="htmlMessage" />
 								</container:north>
+								
 								<container:south layoutData="{barSouthData}">
 									<c:ContentPanel layoutData="{toolsBarLayoutData}"
 										ui:field="toolBarArea">
@@ -116,19 +115,14 @@
 				</container:north>
 				<container:center layoutData="{centerData}">
 					<g:VerticalPanel spacing="0">
-						<c:ContentPanel ui:field="panel" headingText="Pays"
-							collapsible="true">
+						<c:ContentPanel ui:field="panel" headingText="Pays"	collapsible="true">
 							<container:VerticalLayoutContainer>
 								<container:child layoutData="{middleData}">
-
 									<c:ContentPanel headerVisible="false" resize="true">
 										<c:ContentPanel headerVisible="false" width="400">
-
 											<container:VerticalLayoutContainer>
 												<container:child layoutData="{verticalLayoutData}">
-
 													<form:FieldLabel text="{messages.id}">
-
 														<form:widget>
 															<form:NumberField ui:field="id"
 																editor="{integerPropertyEditor}" format="{inumberFormat}"
@@ -137,9 +131,7 @@
 													</form:FieldLabel>
 												</container:child>
 												<container:child layoutData="{verticalLayoutData}">
-
 													<form:FieldLabel text="{messages.code} *">
-
 														<form:widget>
 															<form:TextField ui:field="code"
 																allowBlank="false" />

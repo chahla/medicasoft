@@ -106,12 +106,12 @@
 				</row:north>
 				<row:center layoutData="{centerData}">
 					<gxt:FramedPanel ui:field="panel" headingText="Commune"
-						collapsible="true" addStyleNames="margin-10">
-						<row:VerticalLayoutContainer borders="true">
+						collapsible="true">
+						<row:VerticalLayoutContainer borders="false">
 							<row:child layoutData="{gridData}">
 								<grid:Grid ui:field="grid" store="{listStore}" cm="{columnModel}"
 									view="{gridView}" loadMask="true" columnReordering="true"
-									borders="true" pixelSize="590, 290">
+									borders="false" pixelSize="590, 290">
 								</grid:Grid>
 							</row:child>
 						</row:VerticalLayoutContainer>

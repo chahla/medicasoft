@@ -536,7 +536,7 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 		canDeactivateColumn.setAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 		canDeactivateColumn.setCell(new CheckBoxCell());
 		list.add(canDeactivateColumn);
-		
+
 		ColumnConfig<UserGroupDetail, Boolean> canCloseColumn = new ColumnConfig<UserGroupDetail, Boolean>(
 				propertiesAccess.canClose(), 10, messages.canClose());
 		canCloseColumn.setAlignment(HasHorizontalAlignment.ALIGN_CENTER);
@@ -550,12 +550,12 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 
 		columnModel = new ColumnModel<UserGroupDetail>(list);
 		//columnModel.addHeaderGroup(0, 1, new HeaderGroupConfig(messages.droitAccess(), 1, 2));
-		
+
 		columnModel.addHeaderGroup(0, 0, new HeaderGroupConfig("", 1, 1));
 		columnModel.addHeaderGroup(0, 1, new HeaderGroupConfig(messages.droitAccess(), 1, 12));
-	    
+
 		widget = gxtUiBinder.createAndBindUi(this);
-	    
+
 		panel.addDomHandler(new KeyPressHandler() {
 			@Override
 			public void onKeyPress(KeyPressEvent event) {
@@ -589,7 +589,7 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 		TextField formIdField = new TextField();
 		formIdField.setEnabled(false);
 		editing.addEditor(formIdColumn, formIdField);
-		
+
 		CheckBox canVisualizeField = new CheckBox();
 		editing.addEditor(canVisualizeColumn, canVisualizeField);
 
@@ -739,11 +739,7 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 				grid);
 		target.setAllowSelfAsSource(true);
 		target.setFeedback(Feedback.INSERT);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
+
 		ViewUtils.unNotify(htmlMessage);
 		grid.addCellClickHandler(new CellClickHandler() {
 			@Override
@@ -754,8 +750,8 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 //						model.getGlobalAuditInfo());
 			}
 		});
-		
-		
+
+
 		grid.getView().setViewConfig(new GridViewConfig<UserGroupDetail>() {
 			@Override
 			public String getColStyle(UserGroupDetail model,
@@ -763,7 +759,7 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 					int rowIndex, int colIndex) {
 
 		          com.google.gwt.dom.client.Element parent = grid.getView().getCell(rowIndex, colIndex);
-		          
+
 		          parent.setInnerHTML("Merci");
 //		          if (parent != null) {
 //		            parent = parent.getFirstChildElement();
@@ -772,13 +768,13 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 //		                sb);
 //		            parent.setInnerHTML(sb.toSafeHtml().asString());
 //		          }
-		          
+
 				return null;
 			}
 
 			@Override
 			public String getRowStyle(UserGroupDetail model, int rowIndex) {
-				
+
 				if (model.getErrorMessage() != null
 						&& model.getErrorMessage().getMessage() != null
 						&& !model.getErrorMessage().getMessage().trim()
@@ -941,21 +937,6 @@ public class UserGroupDetailCView extends ViewGridBase<UserGroupDetail> {
 		userHideBannerInfo = bannerInfoIsShowed;
 	}
 
-	public void showInfoBanner(boolean show) {
-		if (!show) {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.hide(LayoutRegion.NORTH);
-			northData.setSize(36);
-			bannerInfoIsShowed = false;
-			mainContainer.show(LayoutRegion.NORTH);
-		} else {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.show(LayoutRegion.NORTH);
-			northData.setSize(63);
-			bannerInfoIsShowed = true;
-			mainContainer.show(LayoutRegion.NORTH);
-		}
-	}
 
 	@Override
 	public void setViewCallback(ViewCallback callback) {

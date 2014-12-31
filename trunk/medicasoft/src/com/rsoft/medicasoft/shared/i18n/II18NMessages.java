@@ -816,4 +816,7 @@ public interface II18NMessages extends Messages {
     String emploi();
     String profession();
     String sportFrequente();
+    
+    String information();
+    String no_information_to_display();
 }

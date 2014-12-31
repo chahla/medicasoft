@@ -261,7 +261,7 @@ public class DepartementCView extends ViewGridBase<Departement> {
 		list = new ArrayList<ColumnConfig<Departement, ?>>();
 		List<ColumnConfig<Departement, ?>> list = new ArrayList<ColumnConfig<Departement, ?>>();
 
-		
+
 		ColumnConfig<Departement, Long> entityIdColumn = new ColumnConfig<Departement, Long>(
 				propertiesAccess.entityId(), 30, messages.id());
 		list.add(entityIdColumn);
@@ -299,7 +299,7 @@ public class DepartementCView extends ViewGridBase<Departement> {
 				model.setUpdating(false);
 			}
 		});
-		
+
 		TextField nomField = new TextField();
 		nomField.addValidator(new MaxLengthValidator(100));
 		nomField.setAllowBlank(false);
@@ -357,11 +357,7 @@ public class DepartementCView extends ViewGridBase<Departement> {
 				grid);
 		target.setAllowSelfAsSource(true);
 		target.setFeedback(Feedback.INSERT);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
+
 		ViewUtils.unNotify(htmlMessage);
 		grid.addCellClickHandler(new CellClickHandler() {
 			@Override
@@ -378,7 +374,7 @@ public class DepartementCView extends ViewGridBase<Departement> {
 						}
 						presenter.getCommunePresenter().getView().reset();
 					}
-					
+
 				}
 				entityId = model.getEntityId();
 				ViewUtils.showAuditInfos(htmlMessage,
@@ -408,6 +404,7 @@ public class DepartementCView extends ViewGridBase<Departement> {
 			}
 		});
 		panel.setHeadingText(messages.noHeaderSelected(messages.pays()));
+
 		return widget;
 	}
 
@@ -558,21 +555,6 @@ public class DepartementCView extends ViewGridBase<Departement> {
 		userHideBannerInfo = bannerInfoIsShowed;
 	}
 
-	public void showInfoBanner(boolean show) {
-		if (!show) {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.hide(LayoutRegion.NORTH);
-			northData.setSize(36);
-			bannerInfoIsShowed = false;
-			mainContainer.show(LayoutRegion.NORTH);
-		} else {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.show(LayoutRegion.NORTH);
-			northData.setSize(63);
-			bannerInfoIsShowed = true;
-			mainContainer.show(LayoutRegion.NORTH);
-		}
-	}
 
 	@Override
 	public void setViewCallback(ViewCallback callback) {
@@ -596,7 +578,7 @@ public class DepartementCView extends ViewGridBase<Departement> {
 			panel.setHeadingText(messages.pays() + " ("
 					+ messages.noHeaderSelected(messages.pays()) + ")");
 		}
-		
+
 	}
 
 	@Override
