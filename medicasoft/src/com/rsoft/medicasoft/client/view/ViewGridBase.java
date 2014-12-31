@@ -44,6 +44,7 @@ import com.sencha.gxt.widget.core.client.grid.ColumnModel;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.grid.RowNumberer;
 import com.sencha.gxt.widget.core.client.grid.filters.GridFilters;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 public abstract class ViewGridBase<T extends ModelBase> implements IView<T> {
 	private boolean detail;
@@ -240,7 +241,13 @@ public abstract class ViewGridBase<T extends ModelBase> implements IView<T> {
 	}
 
 	public void showInfoBanner(boolean show) {
-		if (!show) {
+		String html = htmlMessage.getHTML();
+		if ((html == null || html.trim().isEmpty()) && show) {
+			Info.display(messages.message(), messages.no_information_to_display());
+		} else if (html != null && !html.trim().isEmpty()) {
+			Info.display(messages.message(), html);
+		}
+		if (html == null || html.trim().isEmpty() || !show) {
 			mainContainer.hide(LayoutRegion.NORTH);
 			menuContainer.hide(LayoutRegion.NORTH);
 			northData.setSize(36);

@@ -10,6 +10,8 @@ import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -177,6 +179,35 @@ public class PaysView extends PaysMasterWrapperView {
 		this.finalizeForm(callback, ENTITY_NAME);
 		this.driver = GWT.create(PaysDriver.class);
 		this.edit();
+		if (dataDetail != null && mainContainer != null) {
+			final double ds = dataDetail.getSize();
+			if (ds >= 50) {
+				mainContainer.addResizeHandler(new ResizeHandler() {
+					@Override
+					public void onResize(ResizeEvent event) {
+						if (ms == 0) {
+							ms = mainContainer.getOffsetHeight(false);
+							if (ms > 0) {
+								pct = (ds * 100) / ms;
+							}
+						}
+						if (ms > 0
+								&& ms != mainContainer.getOffsetHeight(false)) {
+							double nSize = (mainContainer
+									.getOffsetHeight(false) * pct) / 100;
+							if (nSize <= dataDetail.getMinSize()) {
+								nSize = dataDetail.getMinSize();
+							}
+							if (nSize > dataDetail.getMaxSize()) {
+								nSize = dataDetail.getMaxSize();
+							}
+							dataDetail.setSize(nSize);
+						}
+					}
+				});
+			}
+		}
+
 		return widget;
 	}
 
@@ -287,17 +318,19 @@ public class PaysView extends PaysMasterWrapperView {
 	protected void addDetails(Widget widget, String title) {
 		if (detailsContainer == null) {
 			detailsContainer = new HorizontalLayoutContainer();
-			southData.setMargins(new Margins(0, 0, 0, 0));
-			southData.setCollapsible(true);
-			southData.setSplit(true);
 		}
 		widget.setWidth("33.33%");
+
 		widget.getElement().getStyle().setProperty("whiteSpace", "nowrap");
 		widget.addStyleName(ThemeStyles.getStyle().border());
 		widget.addStyleName("pad-text white-bg");
+
 		detailsContainer.add(widget, new HorizontalLayoutData(.334d, 1d,
-				new Margins(0, 2, 0, 2)));
-		mainContainer.setSouthWidget(detailsContainer, southData);
+				new Margins(0, 1, 0, 1)));
+		dataDetail.setSize(350);
+		dataDetail.setMinSize(50);
+		dataDetail.setMaxSize(350);
+		mainContainer.setSouthWidget(detailsContainer, dataDetail);
 	}
 
 	public IWidget getViewWidget() {
@@ -344,5 +377,4 @@ public class PaysView extends PaysMasterWrapperView {
 		// Copy the data in the object into the UInext
 		driver.edit(presenter.getModel());
 	}
-
 }

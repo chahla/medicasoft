@@ -43,6 +43,8 @@ public abstract class PaysMasterWrapperView extends ViewFormBase<Pays> {
 		departementView.setBtnSaveVisible(false);
 		departementView.setDetail(true);
 
+		
+		
 		communePresenter = eventBus.addHandler(CommunePresenter.class);
 		communeView = communePresenter.getView();
 		communeView.setViewCallback(callback);

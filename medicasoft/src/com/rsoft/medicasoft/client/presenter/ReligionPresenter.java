@@ -138,6 +138,9 @@ public class ReligionPresenter extends PresenterBase<IView<Religion>, Religion>
 				Record rec = (Record) record.next();
 				rec.commit(true);
 				Religion model = (Religion) rec.getModel();
+				
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxgetClassification: "+model.getClassification());
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxgetSTATUS: "+model.getSTATUS());
 				if ("INSERT".equalsIgnoreCase(model.getSTATUS())
 						|| "MERGE".equalsIgnoreCase(model.getSTATUS())
 						|| "REMOVE".equalsIgnoreCase(model.getSTATUS())) {

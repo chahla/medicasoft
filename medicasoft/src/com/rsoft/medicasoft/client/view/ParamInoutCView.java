@@ -136,7 +136,7 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 		listStore.commitChanges();
 		grid.getView().refresh(false);
 	}
-	
+
 	@Override
 	public void loadDatas() {
 		try {
@@ -147,7 +147,7 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 					listStore.clear();
 					listStore.commitChanges();
 					FilterWrapper wrapper = new FilterWrapper(null);
-					
+
         if (filters.getFilter("contenu") != null && filters.getFilter("contenu").getFilterConfig() != null && !filters.getFilter("contenu").getFilterConfig().isEmpty()){
           for(FilterConfig fc : filters.getFilter("contenu").getFilterConfig()) {
             if(fc.getValue() != null) {
@@ -289,7 +289,7 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 		numberer = new RowNumberer<ParamInout>(identity);
 		list = new ArrayList<ColumnConfig<ParamInout, ?>>();
 		List<ColumnConfig<ParamInout, ?>> list = new ArrayList<ColumnConfig<ParamInout, ?>>();
-		
+
         ColumnConfig<ParamInout, String> contenuColumn = new ColumnConfig<ParamInout, String>(propertiesAccess.contenu(), 5000, messages.contenu());
         list.add(contenuColumn);
         ColumnConfig<ParamInout, String> descriptionColumn = new ColumnConfig<ParamInout, String>(propertiesAccess.description(), 20, messages.description());
@@ -305,7 +305,7 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 		list.add(updatedByColumn);
 		ColumnConfig<ParamInout, Date> updatedOnColumn = new ColumnConfig<ParamInout, Date>(
 				propertiesAccess.updatedOn(), 10, "updatedOn");
-		list.add(updatedOnColumn);		
+		list.add(updatedOnColumn);
 		columnModel = new ColumnModel<ParamInout>(list);
 	        widget = gxtUiBinder.createAndBindUi(this);
 		panel.addDomHandler(new KeyPressHandler() {
@@ -335,14 +335,14 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 				model.setUpdating(false);
 			}
 		});
-		
-      
+
+
       TextField contenuField = new TextField();
       contenuField.addValidator(new MaxLengthValidator(5000));
       contenuField.setAllowBlank(false);
       editing.addEditor(contenuColumn, contenuField);
 
-      
+
       TextField descriptionField = new TextField();
       descriptionField.addValidator(new MaxLengthValidator(20));
       descriptionField.setAllowBlank(false);
@@ -385,7 +385,7 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 
 		filters.initPlugin(grid);
 		//Add Filters
-		
+
         StringFilter<ParamInout> contenuFilter = new StringFilter<ParamInout>(propertiesAccess.contenu());
         filters.addFilter(contenuFilter);
         StringFilter<ParamInout> updatedByFilter = new StringFilter<ParamInout>(propertiesAccess.updatedBy());
@@ -407,11 +407,7 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 		GridDropTarget<ParamInout> target = new GridDropTarget<ParamInout>(grid);
 		target.setAllowSelfAsSource(true);
 		target.setFeedback(Feedback.INSERT);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
+
 		ViewUtils.unNotify(htmlMessage);
 		grid.addCellClickHandler(new CellClickHandler() {
 			@Override
@@ -527,7 +523,7 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 			ex.printStackTrace(System.out);
 		} finally {
 			Info.display(messages.message(), messages.finished());
-			
+
 			if (box != null) {
 				box.hide();
 				box = null;
@@ -590,21 +586,6 @@ public class ParamInoutCView extends ViewGridBase<ParamInout> {
 		userHideBannerInfo = bannerInfoIsShowed;
 	}
 
-	public void showInfoBanner(boolean show) {
-		if (!show) {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.hide(LayoutRegion.NORTH);
-			northData.setSize(36);
-			bannerInfoIsShowed = false;
-			mainContainer.show(LayoutRegion.NORTH);
-		} else {
-			mainContainer.hide(LayoutRegion.NORTH);
-			menuContainer.show(LayoutRegion.NORTH);
-			northData.setSize(63);
-			bannerInfoIsShowed = true;
-			mainContainer.show(LayoutRegion.NORTH);
-		}
-	}
 
 	@Override
 	public void setViewCallback(ViewCallback callback) {

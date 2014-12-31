@@ -136,7 +136,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
 		listStore.commitChanges();
 		grid.getView().refresh(false);
 	}
-	
+
 	@Override
 	public void loadDatas() {
 		try {
@@ -147,7 +147,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
 					listStore.clear();
 					listStore.commitChanges();
 					FilterWrapper wrapper = new FilterWrapper(null);
-					
+
         if (filters.getFilter("professionId") != null && filters.getFilter("professionId").getFilterConfig() != null && !filters.getFilter("professionId").getFilterConfig().isEmpty()){
           for(FilterConfig fc : filters.getFilter("professionId").getFilterConfig()) {
             if(fc.getValue() != null) {
@@ -296,7 +296,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
 		numberer = new RowNumberer<Profession>(identity);
 		list = new ArrayList<ColumnConfig<Profession, ?>>();
 		List<ColumnConfig<Profession, ?>> list = new ArrayList<ColumnConfig<Profession, ?>>();
-		
+
         ColumnConfig<Profession, String> descriptionColumn = new ColumnConfig<Profession, String>(propertiesAccess.description(), 100, messages.description());
         list.add(descriptionColumn);
         ColumnConfig<Profession, String> classificationColumn = new ColumnConfig<Profession, String>(propertiesAccess.classification(), 50, messages.classification());
@@ -312,7 +312,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
 		list.add(updatedByColumn);
 		ColumnConfig<Profession, Date> updatedOnColumn = new ColumnConfig<Profession, Date>(
 				propertiesAccess.updatedOn(), 10, messages.updatedOn());
-		list.add(updatedOnColumn);		
+		list.add(updatedOnColumn);
 		columnModel = new ColumnModel<Profession>(list);
 	        widget = gxtUiBinder.createAndBindUi(this);
 		panel.addDomHandler(new KeyPressHandler() {
@@ -342,7 +342,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
 				model.setUpdating(false);
 			}
 		});
-		
+
       NumberField<Integer> professionIdField = new NumberField(integerPropertyEditor);
       professionIdField.setAllowBlank(false);
       TextField descriptionField = new TextField();
@@ -350,7 +350,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
       descriptionField.setAllowBlank(false);
       editing.addEditor(descriptionColumn, descriptionField);
 
-      
+
       TextField classificationField = new TextField();
       classificationField.addValidator(new MaxLengthValidator(50));      editing.addEditor(classificationColumn, classificationField);
 
@@ -413,11 +413,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
 		GridDropTarget<Profession> target = new GridDropTarget<Profession>(grid);
 		target.setAllowSelfAsSource(true);
 		target.setFeedback(Feedback.INSERT);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
+
 		ViewUtils.unNotify(htmlMessage);
 		grid.addCellClickHandler(new CellClickHandler() {
 			@Override
@@ -533,7 +529,7 @@ public class ProfessionCView extends ViewGridBase<Profession> {
 			ex.printStackTrace(System.out);
 		} finally {
 			Info.display(messages.message(), messages.finished());
-			
+
 			if (box != null) {
 				box.hide();
 				box = null;

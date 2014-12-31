@@ -20,7 +20,7 @@ public interface ReligionPropertiesAccess extends PropertyAccess<Religion>  {
 	@Path("key")
 	ModelKeyProvider<Religion> key();
 	ValueProvider<Religion, String> description();
-    ValueProvider<Religion, Item> classificationItem();
+    //ValueProvider<Religion, Item> classificationItem();
     ValueProvider<Religion, String> classification();
     ValueProvider<Religion, String> createdBy();
     ValueProvider<Religion, Date> createdOn();

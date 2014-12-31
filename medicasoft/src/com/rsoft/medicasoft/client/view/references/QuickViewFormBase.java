@@ -1,6 +1,5 @@
 package com.rsoft.medicasoft.client.view.references;
 
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.event.dom.client.KeyPressEvent;
@@ -32,6 +31,7 @@ import com.sencha.gxt.widget.core.client.container.MarginData;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.form.FormPanel;
+import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.tips.ToolTipConfig;
 
 public abstract class QuickViewFormBase<T extends ModelBase> implements
@@ -191,6 +191,12 @@ public abstract class QuickViewFormBase<T extends ModelBase> implements
 	}
 
 	public void showInfoBanner(boolean show) {
+		String html = htmlMessage.getHTML();
+		if ((html == null || html.trim().isEmpty()) && show) {
+			Info.display(messages.message(), messages.no_information_to_display());
+		} else if (html != null && !html.trim().isEmpty()) {
+			Info.display(messages.message(), html);
+		}
 		if (!show) {
 			mainContainer.hide(LayoutRegion.NORTH);
 			menuContainer.hide(LayoutRegion.NORTH);
@@ -281,11 +287,7 @@ public abstract class QuickViewFormBase<T extends ModelBase> implements
 		northData.setCollapsed(true);
 		northData.setFloatable(true);
 		northData.setSplit(true);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
+
 		ToolTipConfig config = new ToolTipConfig();
 		config = new ToolTipConfig();
 		config.setBodyHtml("Prints the current document");

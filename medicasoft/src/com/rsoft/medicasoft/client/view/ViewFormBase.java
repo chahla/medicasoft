@@ -1,6 +1,5 @@
 package com.rsoft.medicasoft.client.view;
 
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.event.dom.client.KeyPressEvent;
@@ -30,6 +29,7 @@ import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
 import com.sencha.gxt.widget.core.client.container.MarginData;
 import com.sencha.gxt.widget.core.client.form.FormPanel;
+import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.tips.ToolTipConfig;
 
 public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
@@ -40,8 +40,8 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 	protected AutoProgressMessageBox box;
 	protected ViewCallback callback;
 	protected Long entityId;
-	protected TabPanel folder; 
-	
+	protected TabPanel folder;
+
 	protected String paramInoutSuffix;
 	@Ignore
 	@UiField(provided = true)
@@ -53,11 +53,18 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 	@UiField
 	protected BorderLayoutContainer mainContainer;
 	protected RSOFTEventBus eventBus;
+	protected double mainContainerHeight;
 
 	protected SimpleBeanEditorDriver<T, ? super ViewFormBase<T>> driver;
 
 	protected abstract SimpleBeanEditorDriver<T, ? super ViewFormBase<T>> createDriver();
 
+	protected BorderLayoutData dataDetail = new BorderLayoutData();
+
+	protected double ms = 0;
+
+	protected double pct = 0;
+	
 	protected void setEventBus(RSOFTEventBus eventBus) {
 		this.eventBus = eventBus;
 	}
@@ -132,12 +139,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -158,12 +165,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -185,12 +192,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -212,12 +219,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -239,12 +246,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -261,12 +268,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -283,12 +290,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -305,12 +312,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -327,12 +334,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -351,12 +358,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -379,12 +386,12 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 			@Override
 			public void onSingleOperationSuccessed(T model) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 
 			@Override
 			public void onSingleModelOperationFailed(T model, Throwable cause) {
-				//hideProgressBar();
+				// hideProgressBar();
 			}
 		};
 		urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -403,12 +410,13 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 			UserRequestCallbackAdapter<T> urc = new UserRequestCallbackAdapter<T>() {
 				@Override
 				public void onSingleOperationSuccessed(T model) {
-					//hideProgressBar();
+					// hideProgressBar();
 				}
 
 				@Override
-				public void onSingleModelOperationFailed(T model, Throwable cause) {
-					//hideProgressBar();
+				public void onSingleModelOperationFailed(T model,
+						Throwable cause) {
+					// hideProgressBar();
 				}
 			};
 			urc.setRequestDescriptor(new RequestDescriptor(ENTITY_NAME));
@@ -417,7 +425,13 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 	}
 
 	public void showInfoBanner(boolean show) {
-		if (!show) {
+		String html = htmlMessage.getHTML();
+		if ((html == null || html.trim().isEmpty()) && show) {
+			Info.display(messages.message(), messages.no_information_to_display());
+		} else if (html != null && !html.trim().isEmpty()) {
+			Info.display(messages.message(), html);
+		}
+		if (html == null || html.trim().isEmpty() || !show) {
 			mainContainer.hide(LayoutRegion.NORTH);
 			menuContainer.hide(LayoutRegion.NORTH);
 			northData.setSize(36);
@@ -464,12 +478,13 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 	public boolean isDetail() {
 		return detail;
 	}
-	/*Si vous avez des modifications vous avez a faire dans le model courrant,
+
+	/*
+	 * Si vous avez des modifications vous avez a faire dans le model courrant,
 	 * redefinissez cette methode et faites y les modifications
-	 * */
+	 */
 	public void finalizeModel(T currentModel) {
-		
-		
+
 	}
 
 	public abstract void setRenderer(ToolTipConfig config);
@@ -487,7 +502,11 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 				formUpdated();
 			}
 		}, KeyPressEvent.getType());
+		dataDetail.setMargins(new Margins(0, 0, 0, 0));
+		dataDetail.setCollapsible(true);
+		dataDetail.setSplit(true);
 		showInfoBanner(bannerInfoIsShowed);
+		mainContainerHeight = mainContainer.getOffsetHeight();
 		mainContainer.setResize(true);
 		southData.setMargins(new Margins(5, 5, 5, 5));
 		southData.setCollapsible(true);
@@ -509,12 +528,6 @@ public abstract class ViewFormBase<T extends ModelBase> implements IView<T>,
 		northData.setCollapsed(true);
 		northData.setFloatable(true);
 		northData.setSplit(true);
-		htmlMessage.getElement().getStyle().setBackgroundColor("#F6F983");
-		htmlMessage.getElement().getStyle().setBorderColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderWidth(3, Unit.PX);
-		htmlMessage.getElement().getStyle().setColor("#2106C2");
-		htmlMessage.getElement().getStyle().setBorderColor("#4F81BD");
-		htmlMessage.setSize("1000", "100");
 		toolsBar = new FormToolsBar();
 		toolsBar.setParamInoutSuffix(ENTITY_NAME);
 		toolsBar.setPageSize(50);
